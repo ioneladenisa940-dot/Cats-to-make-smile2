@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hey Sam!</title>
+  <style>
+    :root { --pink: #ff69b4; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: #000;
+      color: var(--pink);
+      font-family: system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+    .cat {
+      max-width: 80vw;
+      width: 400px;
+      border: 4px solid var(--pink);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255,105,180,0.7);
+    }
+    .caption {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    .reload {
+      background: transparent;
+      border: 2px solid var(--pink);
+      color: var(--pink);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .reload:hover {
+      background: rgba(255,105,180,0.1);
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5rem; }
+      .cat { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Sam!</h1>
+  <div class="cat">
+    <img id="catImg" src="https://cataas.com/cat/gif" alt="Funny cat" style="width:100%; display:block;" />
+  </div>
+  <div class="caption">A cat to brighten the day.</div>
+  <button class="reload" onclick="reloadCat()">New cat</button>
+
+  <script>
+    function reloadCat() {
+      const img = document.getElementById("catImg");
+      img.src = "https://cataas.com/cat/gif?" + Date.now();
+    }
+  </script>
+</body>
+</html>
